@@ -7,22 +7,22 @@
 <meta name="description" content="Premium residential building in Wānaka and the wider Otago region. New homes, renovations, and extensions. Call Andy Giles on +64 21 895 745.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --forest:   #162818;
   --forestDk: #0D1A0F;
   --forestMd: #1E3620;
-  --gold:     #C47F12;
-  --goldLt:   #D89A30;
-  --goldDim:  rgba(196,127,18,.12);
-  --off:      #F5F3EF;
-  --off2:     #EDEBE6;
-  --off3:     #E4E1DA;
-  --text:     #162818;
-  --body:     #3D4F3E;
-  --dim:      #7A8C7B;
-  --border:   rgba(22,40,24,.1);
+  --gold:     #B8751A;
+  --goldLt:   #D4922A;
+  --goldDim:  rgba(184,117,26,.12);
+  --off:      #F6F4F0;
+  --off2:     #EDEAE4;
+  --off3:     #E3E0D8;
+  --text:     #1A2218;
+  --body:     #3A4A3B;
+  --dim:      #7A8A7B;
+  --border:   rgba(26,34,24,.1);
   --white:    #ffffff;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -31,186 +31,243 @@ body{font-family:'Inter',sans-serif;background:var(--off);color:var(--text);line
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:100;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0;background:transparent;transition:background .4s,box-shadow .4s}
-nav.scrolled{background:rgba(13,26,15,.97);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
-.nav-logo{padding-left:1rem;display:flex;flex-direction:column;line-height:1}
-.nav-logo-name{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;color:var(--white);letter-spacing:-.01em}
-.nav-logo-sub{font-size:.58rem;font-weight:500;color:rgba(255,255,255,.42);letter-spacing:.2em;text-transform:uppercase;margin-top:3px}
-.nav-links{display:flex;align-items:center;gap:.1rem}
-.nav-links a{font-size:.82rem;font-weight:500;color:rgba(255,255,255,.7);padding:.45rem .85rem;border-radius:5px;transition:color .2s,background .2s}
-.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.07)}
-.nav-cta{background:var(--gold)!important;color:var(--white)!important;padding:.55rem 1.2rem!important;border-radius:5px!important;font-weight:700!important;font-size:.78rem!important;letter-spacing:.06em!important;text-transform:uppercase!important;margin-right:1rem!important;transition:background .2s,transform .15s!important}
-.nav-cta:hover{background:var(--goldLt)!important;transform:translateY(-1px)!important}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:1px solid rgba(255,255,255,.18);border-radius:5px;margin-right:1rem}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0;background:transparent;transition:background .4s,box-shadow .4s}
+nav.scrolled{background:rgba(10,22,12,.96);backdrop-filter:blur(24px);box-shadow:0 1px 0 rgba(255,255,255,.05)}
+.nav-logo{padding-left:1.5rem;display:flex;flex-direction:column;line-height:1;gap:3px}
+.nav-logo-name{font-family:'Cormorant Garamond',serif;font-size:1.35rem;font-weight:600;color:var(--white);letter-spacing:.02em}
+.nav-logo-sub{font-size:.54rem;font-weight:500;color:rgba(255,255,255,.38);letter-spacing:.26em;text-transform:uppercase}
+.nav-links{display:flex;align-items:center;gap:.15rem}
+.nav-links a{font-size:.8rem;font-weight:500;color:rgba(255,255,255,.68);padding:.45rem .9rem;border-radius:4px;letter-spacing:.01em;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--white);background:rgba(255,255,255,.06)}
+.nav-cta{background:var(--gold)!important;color:var(--white)!important;padding:.55rem 1.3rem!important;border-radius:4px!important;font-weight:600!important;font-size:.78rem!important;letter-spacing:.08em!important;text-transform:uppercase!important;margin-right:1.5rem!important;transition:background .2s!important}
+.nav-cta:hover{background:var(--goldLt)!important}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;border:1px solid rgba(255,255,255,.15);border-radius:4px;margin-right:1.5rem}
 .hamburger span{display:block;width:20px;height:2px;background:rgba(255,255,255,.8);border-radius:2px}
-.mobile-menu{display:none;position:fixed;top:72px;inset-x:0;background:rgba(13,26,15,.98);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07);padding:1.2rem 1.5rem 1.8rem;z-index:99}
-.mobile-menu a{display:block;padding:.8rem 0;font-size:.95rem;color:rgba(255,255,255,.7);border-bottom:1px solid rgba(255,255,255,.07);font-weight:500}
-.mobile-menu a:last-child{border:none;margin-top:.6rem;padding:.9rem 1rem;text-align:center;background:var(--gold);border-radius:7px;color:var(--white);font-weight:700;text-transform:uppercase;font-size:.8rem;letter-spacing:.06em}
+.mobile-menu{display:none;position:fixed;top:72px;inset-x:0;background:rgba(10,22,12,.97);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.07);padding:1.4rem 1.75rem 2rem;z-index:99}
+.mobile-menu a{display:block;padding:.85rem 0;font-size:.95rem;color:rgba(255,255,255,.65);border-bottom:1px solid rgba(255,255,255,.06);font-weight:400;letter-spacing:.01em}
+.mobile-menu a:last-child{border:none;margin-top:.75rem;padding:.9rem 1rem;text-align:center;background:var(--gold);border-radius:5px;color:var(--white);font-weight:600;text-transform:uppercase;font-size:.78rem;letter-spacing:.08em}
 .mobile-menu.open{display:block}
 
-/* HERO */
-.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:saturate(.8) contrast(1.05)}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(108deg,rgba(13,26,15,.95) 0%,rgba(13,26,15,.75) 48%,rgba(13,26,15,.38) 100%)}
-.hero-overlay2{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,26,15,.9) 100%)}
-.hero-content{position:relative;z-index:10;max-width:1180px;margin:0 auto;padding:0 2.5rem;padding-top:72px;width:100%}
-.eyebrow-pill{display:inline-flex;align-items:center;gap:.6rem;font-size:.6rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--goldLt);margin-bottom:1.4rem;padding:.4rem .95rem;border-radius:99px;border:1px solid rgba(196,127,18,.3);background:rgba(196,127,18,.08)}
-.eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--gold);flex-shrink:0;animation:blink 2.4s ease-in-out infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(2.8rem,7vw,5.8rem);font-weight:800;line-height:.98;letter-spacing:-.03em;color:var(--white);margin-bottom:1.4rem;max-width:740px}
-.hero h1 em{font-style:italic;font-weight:600;color:var(--goldLt)}
-.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.65);line-height:1.82;max-width:480px;margin-bottom:2.6rem;font-weight:300}
-.hero-btns{display:flex;flex-wrap:wrap;gap:.85rem;margin-bottom:3.5rem}
-.btn-gold{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 2.2rem;background:var(--gold);color:var(--white);border:none;border-radius:6px;font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .2s,transform .2s}
+/* ── HERO ── */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center top;filter:saturate(.85)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(10,22,12,.92) 0%,rgba(10,22,12,.6) 50%,rgba(10,22,12,.2) 100%)}
+.hero-overlay2{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,22,12,.95) 0%,rgba(10,22,12,.4) 35%,transparent 65%)}
+.hero-content{position:relative;z-index:10;width:100%;max-width:1200px;margin:0 auto;padding:0 2.5rem 6rem}
+
+.hero-tag{display:inline-flex;align-items:center;gap:.7rem;font-size:.62rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:1.6rem}
+.hero-tag-line{width:32px;height:1px;background:var(--gold)}
+
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,7.5vw,6.5rem);font-weight:600;line-height:.95;letter-spacing:-.01em;color:var(--white);margin-bottom:1.6rem;max-width:760px}
+.hero h1 em{font-style:italic;font-weight:400;color:var(--goldLt)}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,.58);line-height:1.85;max-width:440px;margin-bottom:2.8rem;font-weight:300;letter-spacing:.01em}
+.hero-btns{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:4rem}
+
+.btn-gold{display:inline-flex;align-items:center;gap:.55rem;padding:1rem 2.4rem;background:var(--gold);color:var(--white);border:none;border-radius:3px;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:background .2s,transform .2s}
 .btn-gold:hover{background:var(--goldLt);transform:translateY(-2px)}
-.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;padding:.95rem 2.2rem;background:transparent;border:2px solid rgba(255,255,255,.3);color:var(--white);border-radius:6px;font-size:.95rem;font-weight:500;transition:border-color .2s,background .2s}
-.btn-ghost:hover{border-color:var(--white);background:rgba(255,255,255,.07)}
-.hero-stats{display:flex;gap:3.5rem;flex-wrap:wrap}
-.stat-val{font-family:'Syne',sans-serif;font-size:2.4rem;font-weight:800;color:var(--white);line-height:1;letter-spacing:-.04em}
+.btn-ghost{display:inline-flex;align-items:center;gap:.55rem;padding:1rem 2.4rem;background:transparent;border:1px solid rgba(255,255,255,.28);color:rgba(255,255,255,.8);border-radius:3px;font-size:.85rem;font-weight:500;letter-spacing:.04em;transition:border-color .2s,background .2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.65);background:rgba(255,255,255,.06)}
+
+.hero-rule{width:100%;height:1px;background:rgba(255,255,255,.1);margin-bottom:2.4rem}
+.hero-stats{display:flex;gap:4rem;flex-wrap:wrap}
+.stat-val{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:600;color:var(--white);line-height:1;letter-spacing:-.01em}
 .stat-val em{font-style:normal;color:var(--gold)}
-.stat-label{font-size:.64rem;font-weight:500;color:rgba(255,255,255,.42);letter-spacing:.12em;text-transform:uppercase;margin-top:.3rem}
+.stat-label{font-size:.6rem;font-weight:500;color:rgba(255,255,255,.38);letter-spacing:.18em;text-transform:uppercase;margin-top:.35rem}
 
-/* SHARED */
-.si{max-width:1180px;margin:0 auto}
-.eyebrow{font-size:.6rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:.85rem;display:flex;align-items:center;gap:.6rem}
-.eyebrow::before{content:'';display:block;width:22px;height:2px;background:var(--gold);flex-shrink:0}
-h2{font-family:'Syne',sans-serif;font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-.025em;line-height:1.02;color:var(--text);margin-bottom:1rem}
-h2 em{font-style:normal;color:var(--gold)}
+/* ── SHARED ── */
+.si{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:.58rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:flex;align-items:center;gap:.7rem}
+.eyebrow::before{content:'';display:block;width:28px;height:1px;background:var(--gold);flex-shrink:0}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:600;letter-spacing:-.01em;line-height:1;color:var(--text);margin-bottom:1.2rem}
+h2 em{font-style:italic;font-weight:400;color:var(--gold)}
 
-/* ABOUT */
-.about{padding:7rem 2.5rem;background:var(--off)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
-.about-body{font-size:.97rem;color:var(--body);line-height:1.88;margin-bottom:1.3rem}
-.checks{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
-.check{display:flex;align-items:flex-start;gap:.75rem;font-size:.9rem;color:var(--body)}
-.check-mark{width:22px;height:22px;border-radius:50%;background:var(--goldDim);border:1px solid rgba(196,127,18,.22);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.68rem;color:var(--gold);font-weight:800;margin-top:.05rem}
+/* ── FEATURE STRIP ── */
+.feature-strip{background:var(--forest);padding:2rem 0;display:flex;overflow:hidden;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.strip-track{display:flex;gap:0;animation:scroll 28s linear infinite;white-space:nowrap;align-items:center}
+.strip-item{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:400;color:rgba(255,255,255,.45);padding:0 2.8rem;letter-spacing:.04em;flex-shrink:0}
+.strip-dot{width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:.5;flex-shrink:0;margin:0 .6rem}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── ABOUT ── */
+.about{padding:8rem 2.5rem;background:var(--off)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
+.about-body{font-size:.96rem;color:var(--body);line-height:1.92;margin-bottom:1.4rem;letter-spacing:.005em}
+.checks{display:flex;flex-direction:column;gap:.8rem;margin-bottom:2.4rem}
+.check{display:flex;align-items:flex-start;gap:.85rem;font-size:.88rem;color:var(--body);letter-spacing:.005em}
+.check-mark{width:20px;height:20px;border-radius:50%;background:var(--goldDim);border:1px solid rgba(184,117,26,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.62rem;color:var(--gold);font-weight:700;margin-top:.12rem}
+
 .about-img-wrap{position:relative}
-.about-img{border-radius:14px;overflow:hidden;box-shadow:0 24px 64px rgba(22,40,24,.16)}
-.about-img img{width:100%;height:520px;object-fit:cover}
-.about-badge{position:absolute;bottom:1.6rem;right:1.6rem;background:rgba(13,26,15,.94);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:1rem 1.3rem;display:flex;align-items:center;gap:.85rem}
-.badge-icon{font-size:1.8rem}
-.badge-text strong{display:block;font-size:.88rem;font-weight:700;color:var(--white)}
-.badge-text span{font-size:.7rem;color:rgba(255,255,255,.48)}
+.about-img-main{border-radius:4px;overflow:hidden;box-shadow:0 32px 80px rgba(22,40,24,.18)}
+.about-img-main img{width:100%;height:540px;object-fit:cover;object-position:center top}
+.about-img-inset{position:absolute;bottom:-2.5rem;left:-2.5rem;width:200px;border-radius:4px;overflow:hidden;box-shadow:0 16px 48px rgba(22,40,24,.22);border:4px solid var(--off)}
+.about-img-inset img{width:100%;height:220px;object-fit:cover}
+.about-badge{position:absolute;top:1.8rem;right:-1.5rem;background:var(--forest);border:1px solid rgba(184,117,26,.2);border-radius:4px;padding:1.1rem 1.4rem;display:flex;align-items:center;gap:.9rem;box-shadow:0 8px 32px rgba(10,22,12,.3)}
+.badge-icon{font-size:1.6rem}
+.badge-text strong{display:block;font-size:.84rem;font-weight:600;color:var(--white);margin-bottom:.15rem}
+.badge-text span{font-size:.68rem;color:rgba(255,255,255,.42);letter-spacing:.04em}
 
-/* SERVICES */
-.services{background:var(--forest);padding:7rem 2.5rem;position:relative;overflow:hidden}
-.services::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at bottom left,rgba(196,127,18,.07) 0%,transparent 60%)}
-.s-eyebrow{color:var(--goldLt)}
-.s-eyebrow::before{background:var(--goldLt)}
+/* ── FEATURED PROJECT ── */
+.featured{padding:0 2.5rem 8rem;background:var(--off)}
+.featured-inner{position:relative;border-radius:4px;overflow:hidden;box-shadow:0 24px 64px rgba(22,40,24,.14)}
+.featured-img{width:100%;height:520px;object-fit:cover;display:block}
+.featured-caption{position:absolute;bottom:0;left:0;right:0;padding:3rem 3.5rem;background:linear-gradient(to top,rgba(10,22,12,.95) 0%,transparent 100%)}
+.featured-tag{font-size:.58rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;display:flex;align-items:center;gap:.55rem}
+.featured-tag::before{content:'';display:block;width:18px;height:1px;background:var(--gold)}
+.featured-title{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:600;color:var(--white);margin-bottom:.5rem;letter-spacing:-.01em}
+.featured-desc{font-size:.86rem;color:rgba(255,255,255,.55);letter-spacing:.01em}
+
+/* ── SERVICES ── */
+.services{background:var(--forestDk);padding:8rem 2.5rem;position:relative;overflow:hidden}
+.services::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%,rgba(184,117,26,.05) 0%,transparent 65%)}
+.s-eyebrow{color:rgba(212,146,42,.7)}
+.s-eyebrow::before{background:rgba(212,146,42,.7)}
 .services h2{color:var(--white)}
 .services h2 em{color:var(--goldLt)}
-.services-intro{font-size:.95rem;color:rgba(255,255,255,.55);line-height:1.85;max-width:540px;margin-bottom:3.5rem;font-weight:300}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem}
-.svc-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:14px;padding:2rem;transition:background .2s,border-color .2s,transform .2s;position:relative;overflow:hidden}
-.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity .25s}
-.svc-card:hover{background:rgba(255,255,255,.07);border-color:rgba(196,127,18,.28);transform:translateY(-4px)}
-.svc-card:hover::before{opacity:1}
-.svc-icon{width:50px;height:50px;border-radius:12px;background:var(--goldDim);border:1px solid rgba(196,127,18,.2);display:flex;align-items:center;justify-content:center;font-size:1.4rem;margin-bottom:1.2rem}
-.svc-title{font-family:'Syne',sans-serif;font-size:1.12rem;font-weight:700;color:var(--white);margin-bottom:.55rem;letter-spacing:-.01em}
-.svc-body{font-size:.87rem;color:rgba(255,255,255,.53);line-height:1.78}
+.services-intro{font-size:.93rem;color:rgba(255,255,255,.48);line-height:1.9;max-width:520px;margin-bottom:4rem;font-weight:300;letter-spacing:.01em}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);border-radius:4px;overflow:hidden}
+.svc-card{background:rgba(255,255,255,.02);padding:2.5rem 2.2rem;transition:background .2s;position:relative}
+.svc-card:hover{background:rgba(255,255,255,.05)}
+.svc-card::after{content:'';position:absolute;top:0;left:0;width:2px;height:0;background:var(--gold);transition:height .3s}
+.svc-card:hover::after{height:100%}
+.svc-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:400;color:rgba(184,117,26,.15);line-height:1;margin-bottom:1.2rem;letter-spacing:-.02em}
+.svc-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;color:var(--white);margin-bottom:.6rem;letter-spacing:-.01em}
+.svc-body{font-size:.84rem;color:rgba(255,255,255,.45);line-height:1.82;letter-spacing:.01em}
 
-/* GALLERY */
-.gallery{background:var(--off2);padding:7rem 2.5rem;position:relative}
-.gallery::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--goldLt),transparent)}
-.gallery-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:270px 270px;gap:1rem;margin-top:2.5rem}
-.g-item{border-radius:12px;overflow:hidden;position:relative;cursor:default}
-.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .55s ease}
-.g-item:hover img{transform:scale(1.06)}
+/* ── GALLERY ── */
+.gallery{background:var(--off2);padding:8rem 2.5rem}
+.gallery-hd{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:3rem;flex-wrap:wrap;gap:2rem}
+.gallery-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:300px 240px;gap:.75rem}
+.g-item{border-radius:3px;overflow:hidden;position:relative}
+.g-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .4s}
+.g-item:hover img{transform:scale(1.05);filter:brightness(1.05)}
 .g-item:first-child{grid-row:span 2}
-.g-label{position:absolute;bottom:1rem;left:1rem;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;color:var(--white);letter-spacing:.1em;text-transform:uppercase;background:rgba(13,26,15,.75);backdrop-filter:blur(8px);padding:.35rem .75rem;border-radius:99px;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s}
+.g-label{position:absolute;bottom:.9rem;left:.9rem;font-size:.6rem;font-weight:600;color:var(--white);letter-spacing:.16em;text-transform:uppercase;background:rgba(10,22,12,.72);backdrop-filter:blur(10px);padding:.32rem .7rem;border-radius:2px;opacity:0;transform:translateY(5px);transition:opacity .3s,transform .3s}
 .g-item:hover .g-label{opacity:1;transform:none}
 
-/* REVIEWS */
-.reviews{background:var(--off);padding:7rem 2.5rem}
+/* ── ANDY SECTION ── */
+.andy{background:var(--forest);padding:8rem 2.5rem}
+.andy-grid{display:grid;grid-template-columns:1fr 1fr;gap:7rem;align-items:center}
+.andy-img{border-radius:4px;overflow:hidden;box-shadow:0 32px 80px rgba(10,22,12,.4);position:relative}
+.andy-img img{width:100%;height:560px;object-fit:cover;object-position:center top}
+.andy-img-overlay{position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,rgba(10,22,12,.8),transparent)}
+.andy-quote{position:absolute;bottom:2rem;left:2rem;right:2rem}
+.andy-quote-mark{font-family:'Cormorant Garamond',serif;font-size:4rem;color:var(--gold);line-height:.7;opacity:.6;margin-bottom:.3rem}
+.andy-quote p{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--white);line-height:1.6;letter-spacing:.01em}
+.andy-a-eyebrow{color:rgba(212,146,42,.65)}
+.andy-a-eyebrow::before{background:rgba(212,146,42,.65)}
+.andy h2{color:var(--white)}
+.andy h2 em{color:var(--goldLt)}
+.andy-body{font-size:.94rem;color:rgba(255,255,255,.5);line-height:1.92;margin-bottom:1.4rem;font-weight:300;letter-spacing:.01em}
+.andy-details{display:flex;flex-direction:column;gap:.7rem;margin-bottom:2.4rem}
+.andy-detail{display:flex;align-items:center;gap:.8rem;font-size:.86rem;color:rgba(255,255,255,.55)}
+.andy-detail-icon{width:34px;height:34px;border-radius:3px;background:rgba(184,117,26,.1);border:1px solid rgba(184,117,26,.18);display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.andy-sig{font-family:'Cormorant Garamond',serif;font-size:2rem;font-style:italic;font-weight:400;color:var(--goldLt);margin-top:.5rem;letter-spacing:.02em}
+
+/* ── REVIEWS ── */
+.reviews{background:var(--off);padding:8rem 2.5rem}
 .reviews-top{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:2rem;margin-bottom:3.5rem}
-.rating-block{display:flex;align-items:center;gap:1.2rem;background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.2rem 1.8rem;box-shadow:0 4px 24px rgba(22,40,24,.07)}
-.rating-num{font-family:'Syne',sans-serif;font-size:3.2rem;font-weight:800;color:var(--text);line-height:1;letter-spacing:-.04em}
-.rating-meta{display:flex;flex-direction:column;gap:.3rem}
-.rating-stars{color:#f59e0b;font-size:1.1rem;letter-spacing:.08em}
-.rating-count{font-size:.75rem;color:var(--dim);font-weight:500}
-.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.2rem}
-.rev-card{background:var(--white);border:1px solid var(--border);border-radius:14px;padding:1.8rem;transition:box-shadow .25s,transform .25s;position:relative}
-.rev-card::after{content:'';position:absolute;bottom:0;left:1.8rem;right:1.8rem;height:2px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity .25s}
-.rev-card:hover{box-shadow:0 12px 40px rgba(22,40,24,.09);transform:translateY(-4px)}
-.rev-card:hover::after{opacity:1}
-.rev-stars{color:#f59e0b;font-size:.95rem;letter-spacing:.06em;margin-bottom:.9rem}
-.rev-text{font-size:.92rem;color:var(--body);line-height:1.82;font-style:italic;margin-bottom:1.2rem}
-.rev-author{font-size:.86rem;font-weight:700;color:var(--text)}
-.rev-meta{font-size:.74rem;color:var(--dim);margin-top:.15rem}
-.rev-cta{display:inline-flex;align-items:center;gap:.5rem;margin-top:2.5rem;font-size:.82rem;font-weight:600;color:var(--gold);letter-spacing:.04em;transition:gap .2s}
-.rev-cta:hover{gap:.75rem}
+.rating-block{display:flex;align-items:center;gap:1.4rem;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:1.3rem 2rem;box-shadow:0 4px 24px rgba(22,40,24,.06)}
+.rating-num{font-family:'Cormorant Garamond',serif;font-size:3.6rem;font-weight:600;color:var(--text);line-height:1;letter-spacing:-.02em}
+.rating-meta{display:flex;flex-direction:column;gap:.35rem}
+.rating-stars{color:#B8751A;font-size:1rem;letter-spacing:.06em}
+.rating-count{font-size:.72rem;color:var(--dim);font-weight:500;letter-spacing:.04em}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.rev-card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:2.2rem;transition:box-shadow .25s,transform .25s;position:relative;overflow:hidden}
+.rev-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold)}
+.rev-card:hover{box-shadow:0 16px 48px rgba(22,40,24,.1);transform:translateY(-4px)}
+.rev-mark{font-family:'Cormorant Garamond',serif;font-size:4rem;font-weight:600;color:rgba(184,117,26,.12);line-height:.8;margin-bottom:.8rem}
+.rev-stars{color:#B8751A;font-size:.88rem;letter-spacing:.04em;margin-bottom:1rem}
+.rev-text{font-size:.92rem;color:var(--body);line-height:1.85;font-style:italic;margin-bottom:1.4rem;letter-spacing:.005em}
+.rev-author{font-size:.84rem;font-weight:600;color:var(--text);letter-spacing:.01em}
+.rev-meta{font-size:.72rem;color:var(--dim);margin-top:.2rem;letter-spacing:.02em}
+.rev-link{display:inline-flex;align-items:center;gap:.5rem;margin-top:2.8rem;font-size:.8rem;font-weight:500;color:var(--gold);letter-spacing:.06em;text-transform:uppercase;transition:gap .2s}
+.rev-link:hover{gap:.8rem}
 
-/* CTA BAND */
-.cta-band{background:var(--gold);padding:5.5rem 2.5rem;position:relative;overflow:hidden}
-.cta-band::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.1) 0%,transparent 55%)}
-.cta-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr auto;gap:3rem;align-items:center}
-.cta-band h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--white);letter-spacing:-.025em;margin-bottom:.6rem}
-.cta-band p{font-size:.97rem;color:rgba(255,255,255,.8);font-weight:300}
-.cta-btns{display:flex;flex-direction:column;gap:.85rem;min-width:210px}
-.btn-white{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 2rem;background:var(--white);color:var(--gold);border-radius:6px;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;transition:transform .2s,box-shadow .2s}
-.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.14)}
-.btn-white-out{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 2rem;background:transparent;border:2px solid rgba(255,255,255,.55);color:var(--white);border-radius:6px;font-size:.9rem;font-weight:600;transition:border-color .2s,background .2s}
-.btn-white-out:hover{border-color:var(--white);background:rgba(255,255,255,.1)}
+/* ── CTA BAND ── */
+.cta-band{position:relative;overflow:hidden;min-height:420px;display:flex;align-items:center}
+.cta-band-bg{position:absolute;inset:0}
+.cta-band-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:saturate(.7) brightness(.7)}
+.cta-band-overlay{position:absolute;inset:0;background:linear-gradient(100deg,rgba(10,22,12,.95) 0%,rgba(10,22,12,.8) 50%,rgba(10,22,12,.5) 100%)}
+.cta-inner{position:relative;z-index:1;max-width:1200px;margin:0 auto;width:100%;padding:5rem 2.5rem;display:grid;grid-template-columns:1fr auto;gap:3.5rem;align-items:center}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:600;color:var(--white);letter-spacing:-.01em;margin-bottom:.6rem;line-height:1.05}
+.cta-band h2 em{font-style:italic;font-weight:400;color:var(--goldLt)}
+.cta-band p{font-size:.9rem;color:rgba(255,255,255,.55);font-weight:300;letter-spacing:.01em}
+.cta-btns{display:flex;flex-direction:column;gap:.9rem;min-width:220px}
+.btn-white{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 2rem;background:var(--white);color:var(--text);border-radius:3px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;transition:transform .2s,box-shadow .2s}
+.btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.18)}
+.btn-white-out{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:1rem 2rem;background:transparent;border:1px solid rgba(255,255,255,.3);color:rgba(255,255,255,.75);border-radius:3px;font-size:.82rem;font-weight:500;letter-spacing:.04em;transition:border-color .2s,background .2s}
+.btn-white-out:hover{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.07)}
 
-/* CONTACT */
-.contact{background:var(--forestDk);padding:7rem 2.5rem}
-.c-eyebrow{color:var(--goldLt)}
-.c-eyebrow::before{background:var(--goldLt)}
+/* ── CONTACT ── */
+.contact{background:var(--forestDk);padding:8rem 2.5rem}
+.c-eyebrow{color:rgba(212,146,42,.65)}
+.c-eyebrow::before{background:rgba(212,146,42,.65)}
 .contact h2{color:var(--white)}
 .contact h2 em{color:var(--goldLt)}
-.contact-grid{display:grid;grid-template-columns:1fr 1.3fr;gap:5rem;align-items:start;margin-top:2.5rem}
-.c-item{display:flex;align-items:flex-start;gap:1rem;padding:1.1rem 1.3rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:10px;margin-bottom:.85rem;transition:border-color .2s}
-.c-item:hover{border-color:rgba(196,127,18,.28)}
-.c-icon{width:42px;height:42px;border-radius:9px;background:var(--goldDim);border:1px solid rgba(196,127,18,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.1rem}
-.c-label{font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:.2rem}
-.c-val{font-size:.92rem;color:rgba(255,255,255,.8);font-weight:500}
+.contact-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:5.5rem;align-items:start;margin-top:3rem}
+.c-item{display:flex;align-items:flex-start;gap:1rem;padding:1.2rem 1.4rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:3px;margin-bottom:.75rem;transition:border-color .2s}
+.c-item:hover{border-color:rgba(184,117,26,.25)}
+.c-icon{width:40px;height:40px;border-radius:3px;background:var(--goldDim);border:1px solid rgba(184,117,26,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+.c-label{font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:.22rem}
+.c-val{font-size:.9rem;color:rgba(255,255,255,.75);font-weight:400;letter-spacing:.01em}
 .c-val a{color:var(--goldLt);transition:color .2s}
 .c-val a:hover{color:var(--white)}
-.form-wrap{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:2.4rem}
-.form-title{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:700;color:var(--white);margin-bottom:1.4rem;letter-spacing:-.02em}
+.form-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:4px;padding:2.8rem}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:600;color:var(--white);margin-bottom:1.8rem;letter-spacing:-.01em}
 .f-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem}
-.f-group{margin-bottom:1rem}
-.f-group label{display:block;font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.42rem}
-.f-group input,.f-group select,.f-group textarea{width:100%;padding:.78rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:7px;color:var(--white);font-family:'Inter',sans-serif;font-size:.9rem;outline:none;transition:border-color .2s,background .2s}
-.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.22)}
-.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:rgba(196,127,18,.55);background:rgba(255,255,255,.08)}
-.f-group select{cursor:pointer;color:rgba(255,255,255,.65);appearance:none}
+.f-group{margin-bottom:1.1rem}
+.f-group label{display:block;font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.45rem}
+.f-group input,.f-group select,.f-group textarea{width:100%;padding:.82rem 1rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:3px;color:var(--white);font-family:'Inter',sans-serif;font-size:.88rem;outline:none;transition:border-color .2s,background .2s}
+.f-group input::placeholder,.f-group textarea::placeholder{color:rgba(255,255,255,.2)}
+.f-group input:focus,.f-group select:focus,.f-group textarea:focus{border-color:rgba(184,117,26,.5);background:rgba(255,255,255,.07)}
+.f-group select{cursor:pointer;color:rgba(255,255,255,.6);appearance:none}
 .f-group select option{background:#0D1A0F;color:var(--white)}
-.f-group textarea{resize:vertical;min-height:110px}
-.f-submit{width:100%;padding:1rem;background:var(--gold);color:var(--white);border:none;border-radius:7px;font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;letter-spacing:.02em;transition:background .2s,transform .15s;margin-top:.3rem}
+.f-group textarea{resize:vertical;min-height:120px}
+.f-submit{width:100%;padding:1.05rem;background:var(--gold);color:var(--white);border:none;border-radius:3px;font-family:'Inter',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;letter-spacing:.08em;text-transform:uppercase;transition:background .2s,transform .15s;margin-top:.4rem}
 .f-submit:hover{background:var(--goldLt);transform:translateY(-1px)}
 
-/* FOOTER */
-footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.06);padding:3rem 2.5rem 2rem}
-.foot-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2.5rem}
-.f-brand{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:800;color:var(--white);margin-bottom:.3rem;letter-spacing:-.01em}
-.f-sub{font-size:.65rem;color:rgba(255,255,255,.35);letter-spacing:.16em;text-transform:uppercase;margin-bottom:.9rem}
-.f-desc{font-size:.84rem;color:rgba(255,255,255,.42);line-height:1.75}
-.fc-title{font-size:.64rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.32);margin-bottom:1rem}
-.fc a{display:block;font-size:.85rem;color:rgba(255,255,255,.52);margin-bottom:.55rem;transition:color .2s}
-.fc a:hover{color:var(--white)}
-.fc p{font-size:.85rem;color:rgba(255,255,255,.52);margin-bottom:.45rem;line-height:1.7}
-.fc p a{color:rgba(255,255,255,.52);display:inline}
-.fc p a:hover{color:var(--white)}
-.foot-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1180px;margin:0 auto}
-.foot-copy{font-size:.74rem;color:rgba(255,255,255,.28)}
+/* ── FOOTER ── */
+footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.05);padding:3.5rem 2.5rem 2rem}
+.foot-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:3.5rem;margin-bottom:2.5rem}
+.f-brand{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;color:var(--white);margin-bottom:.25rem;letter-spacing:.01em}
+.f-sub{font-size:.58rem;color:rgba(255,255,255,.3);letter-spacing:.22em;text-transform:uppercase;margin-bottom:1rem}
+.f-desc{font-size:.82rem;color:rgba(255,255,255,.38);line-height:1.78;letter-spacing:.01em}
+.fc-title{font-size:.58rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:1.1rem}
+.fc a{display:block;font-size:.83rem;color:rgba(255,255,255,.48);margin-bottom:.55rem;transition:color .2s;letter-spacing:.01em}
+.fc a:hover{color:rgba(255,255,255,.85)}
+.fc p{font-size:.83rem;color:rgba(255,255,255,.48);margin-bottom:.45rem;line-height:1.7;letter-spacing:.01em}
+.fc p a{color:rgba(255,255,255,.48);display:inline;transition:color .2s}
+.fc p a:hover{color:rgba(255,255,255,.85)}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.05);padding-top:1.5rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;max-width:1200px;margin:0 auto}
+.foot-copy{font-size:.72rem;color:rgba(255,255,255,.24);letter-spacing:.03em}
 
-/* REVEAL */
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
 .reveal.visible{opacity:1;transform:none}
 
-/* RESPONSIVE */
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .svc-grid{grid-template-columns:1fr 1fr}
+  .andy-grid{gap:4rem}
+}
 @media(max-width:960px){
-  .about-grid{grid-template-columns:1fr;gap:3rem}
-  .about-img-wrap{order:-1}
-  .about-img img{height:360px}
+  .about-grid,.andy-grid{grid-template-columns:1fr;gap:3.5rem}
+  .andy-img-wrap{order:-1}
+  .about-img-main img,.andy-img img{height:380px}
+  .about-img-inset{width:160px;left:-1.5rem;bottom:-1.5rem}
+  .about-img-inset img{height:170px}
+  .about-badge{right:1rem}
   .contact-grid{grid-template-columns:1fr}
   .foot-inner{grid-template-columns:1fr 1fr;gap:2.5rem}
-  .cta-inner{grid-template-columns:1fr;gap:1.5rem}
+  .cta-inner{grid-template-columns:1fr;gap:2rem}
   .cta-btns{flex-direction:row;flex-wrap:wrap;min-width:unset}
-  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 220px}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:240px 200px}
   .g-item:first-child{grid-row:span 1}
+  .rev-grid{grid-template-columns:1fr 1fr}
+  .featured-img{height:380px}
+  .featured-caption{padding:2rem}
+  .featured-title{font-size:1.7rem}
 }
 @media(max-width:640px){
   nav{height:64px}
@@ -218,26 +275,33 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.06);pad
   .hamburger{display:flex}
   .mobile-menu{top:64px}
   .hero{min-height:100svh}
-  .hero-content{padding:0 1.25rem;padding-top:64px}
-  .hero h1{font-size:2.6rem}
-  .hero-sub{font-size:.93rem}
+  .hero-content{padding:0 1.5rem 4rem}
+  .hero h1{font-size:2.8rem}
   .hero-btns{flex-direction:column;align-items:stretch}
   .hero-btns a{text-align:center;justify-content:center}
-  .hero-stats{gap:2rem}
-  .about,.services,.gallery,.reviews,.contact{padding:4.5rem 1.25rem}
-  h2{font-size:1.9rem}
+  .hero-stats{gap:2.5rem}
+  .about,.services,.gallery,.reviews,.andy,.contact{padding:5rem 1.5rem}
+  .featured{padding:0 1.5rem 5rem}
+  h2{font-size:2.2rem}
+  .svc-grid{grid-template-columns:1fr}
   .gallery-grid{grid-template-columns:1fr;grid-template-rows:unset}
-  .g-item{height:220px}
+  .g-item{height:240px}
   .g-item:first-child{grid-row:span 1}
+  .rev-grid{grid-template-columns:1fr}
   .reviews-top{flex-direction:column;align-items:flex-start}
   .f-row{grid-template-columns:1fr}
-  .form-wrap{padding:1.6rem}
-  footer{padding:3rem 1.25rem 1.5rem}
-  .foot-inner{grid-template-columns:1fr;gap:1.8rem}
+  .form-wrap{padding:1.8rem}
+  footer{padding:3rem 1.5rem 1.5rem}
+  .foot-inner{grid-template-columns:1fr;gap:2rem}
   .foot-bottom{flex-direction:column;gap:.4rem}
-  .cta-band{padding:4rem 1.25rem}
-  .cta-inner{grid-template-columns:1fr}
+  .cta-inner{padding:3.5rem 1.5rem;grid-template-columns:1fr}
   .cta-btns{min-width:unset;flex-direction:column}
+  .about-img-inset{display:none}
+  .about-badge{right:.75rem;top:.75rem}
+  .featured-img{height:280px}
+  .featured-caption{padding:1.5rem}
+  .featured-title{font-size:1.4rem}
+  .andy-img img{height:320px}
 }
 </style>
 </head>
@@ -255,9 +319,7 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.06);pad
     <a href="#reviews">Reviews</a>
     <a href="#contact" class="nav-cta">Get a Quote</a>
   </div>
-  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
-    <span></span><span></span><span></span>
-  </div>
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="toggleMenu()">About</a>
@@ -269,17 +331,18 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.06);pad
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-bg" style="background-image:url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=2000&q=85&fm=webp&fit=crop')"></div>
+  <div class="hero-bg" style="background-image:url('hero.jpg')"></div>
   <div class="hero-overlay"></div>
   <div class="hero-overlay2"></div>
   <div class="hero-content">
-    <div class="eyebrow-pill"><span class="eyebrow-dot"></span>Wānaka's Building Specialists</div>
-    <h1>Building homes<br>worthy of <em>Wānaka.</em></h1>
-    <p class="hero-sub">A E Giles Builders delivers premium residential construction across Wānaka and the wider Otago region — new builds, renovations, and extensions crafted to the highest standard.</p>
+    <div class="hero-tag"><span class="hero-tag-line"></span>Wānaka's Building Specialists</div>
+    <h1>Built with craft.<br>Built for <em>Wānaka.</em></h1>
+    <p class="hero-sub">Premium residential construction across Wānaka and the wider Otago region — new builds, renovations, and extensions delivered to the highest standard.</p>
     <div class="hero-btns">
       <a href="#contact" class="btn-gold">Get a Free Quote</a>
-      <a href="#services" class="btn-ghost">Explore Services</a>
+      <a href="#work" class="btn-ghost">View Our Work</a>
     </div>
+    <div class="hero-rule"></div>
     <div class="hero-stats">
       <div>
         <div class="stat-val">5<em>★</em></div>
@@ -291,11 +354,29 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.06);pad
       </div>
       <div>
         <div class="stat-val">100<em>%</em></div>
-        <div class="stat-label">Wānaka-Based</div>
+        <div class="stat-label">Locally Based</div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- FEATURE STRIP -->
+<div class="feature-strip">
+  <div class="strip-track" id="stripTrack">
+    <span class="strip-item">New Home Builds</span><span class="strip-dot"></span>
+    <span class="strip-item">Renovations & Extensions</span><span class="strip-dot"></span>
+    <span class="strip-item">Alpine & High-Spec Builds</span><span class="strip-dot"></span>
+    <span class="strip-item">Outdoor Living & Decks</span><span class="strip-dot"></span>
+    <span class="strip-item">Project Management</span><span class="strip-dot"></span>
+    <span class="strip-item">Licensed Building Practitioners</span><span class="strip-dot"></span>
+    <span class="strip-item">New Home Builds</span><span class="strip-dot"></span>
+    <span class="strip-item">Renovations & Extensions</span><span class="strip-dot"></span>
+    <span class="strip-item">Alpine & High-Spec Builds</span><span class="strip-dot"></span>
+    <span class="strip-item">Outdoor Living & Decks</span><span class="strip-dot"></span>
+    <span class="strip-item">Project Management</span><span class="strip-dot"></span>
+    <span class="strip-item">Licensed Building Practitioners</span><span class="strip-dot"></span>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section class="about" id="about">
@@ -304,7 +385,7 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.06);pad
       <div class="reveal">
         <p class="eyebrow">About A E Giles Builders</p>
         <h2>Wānaka builders who know<br><em>what quality looks like.</em></h2>
-        <p class="about-body">A E Giles Builders Limited is a trusted Wānaka construction company led by Andy Giles. We've been delivering quality residential building projects across Wānaka, Hawea, and the wider Otago region for years — and we're as busy as ever because the work speaks for itself.</p>
+        <p class="about-body">A E Giles Builders Limited is a trusted Wānaka construction company led by Andy Giles. We've been delivering quality residential building projects across Wānaka, Hawea, and the wider Otago region for over two decades — and we're as busy as ever because the work speaks for itself.</p>
         <p class="about-body">From premium new builds and architecturally designed homes to full renovations and extensions, our team brings the same high standard to every project. We're hands-on builders who care about the craft, the client, and the community we live and work in.</p>
         <div class="checks">
           <div class="check"><div class="check-mark">✓</div><span>Fully licensed building practitioners (LBP)</span></div>
@@ -315,8 +396,11 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.06);pad
         <a href="#contact" class="btn-gold">Start Your Project</a>
       </div>
       <div class="about-img-wrap reveal">
-        <div class="about-img">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=85&fm=webp&fit=crop" alt="A E Giles Builders construction work in Wānaka">
+        <div class="about-img-main">
+          <img src="exterior.jpg" alt="Finished Wānaka home built by A E Giles Builders">
+        </div>
+        <div class="about-img-inset">
+          <img src="roofing.jpg" alt="A E Giles Builders team at work in Wānaka">
         </div>
         <div class="about-badge">
           <div class="badge-icon">🏔️</div>
@@ -325,6 +409,20 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.06);pad
             <span>Serving Otago & beyond</span>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECT -->
+<section class="featured">
+  <div class="si">
+    <div class="featured-inner reveal">
+      <img src="build1.jpg" alt="Premium residential build by A E Giles Builders Wānaka" class="featured-img">
+      <div class="featured-caption">
+        <div class="featured-tag">Featured Project</div>
+        <div class="featured-title">Wānaka Residential New Build</div>
+        <div class="featured-desc">Cedar cladding · Zinc roofing · Full architectural package · Wānaka township</div>
       </div>
     </div>
   </div>
@@ -340,32 +438,32 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.06);pad
     </div>
     <div class="svc-grid">
       <div class="svc-card reveal">
-        <div class="svc-icon">🏡</div>
+        <div class="svc-num">01</div>
         <div class="svc-title">New Home Builds</div>
         <p class="svc-body">Full residential builds from concept to completion. We work with your architect or designer to bring your vision to life — on time and to the quality Wānaka demands.</p>
       </div>
       <div class="svc-card reveal">
-        <div class="svc-icon">🔨</div>
+        <div class="svc-num">02</div>
         <div class="svc-title">Renovations & Extensions</div>
         <p class="svc-body">Transforming existing homes with thoughtful extensions, layout changes, and full renovations. We integrate new work seamlessly with the existing structure.</p>
       </div>
       <div class="svc-card reveal">
-        <div class="svc-icon">🏔️</div>
+        <div class="svc-num">03</div>
         <div class="svc-title">Alpine & High-Spec Builds</div>
         <p class="svc-body">Specialist construction for architecturally designed homes suited to the Wānaka climate — insulation, thermal performance, and premium finishes built to last.</p>
       </div>
       <div class="svc-card reveal">
-        <div class="svc-icon">🪵</div>
+        <div class="svc-num">04</div>
         <div class="svc-title">Outdoor Living & Decks</div>
         <p class="svc-body">Decking, outdoor entertaining areas, and landscaping structures that make the most of Wānaka's spectacular setting. Built tough, built beautiful.</p>
       </div>
       <div class="svc-card reveal">
-        <div class="svc-icon">📐</div>
+        <div class="svc-num">05</div>
         <div class="svc-title">Project Management</div>
         <p class="svc-body">End-to-end project management including consents, subcontractors, and timelines. We take the stress out of building so you don't have to manage it yourself.</p>
       </div>
       <div class="svc-card reveal">
-        <div class="svc-icon">🔧</div>
+        <div class="svc-num">06</div>
         <div class="svc-title">Repairs & Maintenance</div>
         <p class="svc-body">Weathertightness repairs, structural fixes, and general building maintenance. Honest, practical advice and solid workmanship you can rely on.</p>
       </div>
@@ -376,26 +474,62 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.06);pad
 <!-- GALLERY -->
 <section class="gallery" id="work">
   <div class="si">
-    <div class="reveal">
-      <p class="eyebrow">Our Work</p>
-      <h2>Built in Wānaka, <em>built to last.</em></h2>
+    <div class="gallery-hd reveal">
+      <div>
+        <p class="eyebrow">Our Work</p>
+        <h2>Built in Wānaka,<br><em>built to last.</em></h2>
+      </div>
+      <a href="#contact" class="btn-gold" style="align-self:flex-end">Start Your Project</a>
     </div>
     <div class="gallery-grid">
       <div class="g-item reveal">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=85&fm=webp&fit=crop" alt="Premium new build by A E Giles Builders Wānaka">
-        <div class="g-label">New Build</div>
+        <img src="exterior.jpg" alt="Exterior of premium Wānaka home by A E Giles Builders">
+        <div class="g-label">Exterior</div>
       </div>
       <div class="g-item reveal">
-        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85&fm=webp&fit=crop" alt="Renovation project by A E Giles Builders">
-        <div class="g-label">Renovation</div>
+        <img src="kitchen.jpg" alt="Premium kitchen fit-out by A E Giles Builders">
+        <div class="g-label">Kitchen</div>
       </div>
       <div class="g-item reveal">
-        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800&q=85&fm=webp&fit=crop" alt="Interior finishing by A E Giles Builders Wānaka">
+        <img src="deck.jpg" alt="Pool and deck construction by A E Giles Builders Wānaka">
+        <div class="g-label">Outdoor Living</div>
+      </div>
+      <div class="g-item reveal">
+        <img src="interior1.jpg" alt="Interior lounge of new Wānaka build by A E Giles Builders">
         <div class="g-label">Interior</div>
       </div>
       <div class="g-item reveal">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=85&fm=webp&fit=crop" alt="Outdoor living deck by A E Giles Builders">
-        <div class="g-label">Outdoor Living</div>
+        <img src="frame.jpg" alt="Steel frame construction by A E Giles Builders Wānaka">
+        <div class="g-label">Under Construction</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEET ANDY -->
+<section class="andy" id="andy">
+  <div class="si">
+    <div class="andy-grid">
+      <div class="andy-img reveal">
+        <img src="andy.jpg" alt="Andy Giles — A E Giles Builders Wānaka">
+        <div class="andy-img-overlay"></div>
+        <div class="andy-quote">
+          <div class="andy-quote-mark">"</div>
+          <p>We build in Wānaka because we love it here — and that shows in every project we take on.</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow andy-a-eyebrow">The Builder</p>
+        <h2 style="color:var(--white)">Meet <em>Andy Giles.</em></h2>
+        <p class="andy-body">Andy Giles has spent over 20 years building in Wānaka and the Otago region. A licensed building practitioner with a reputation for reliability, quality craftsmanship, and straight talking — he's the kind of builder who picks up the phone and gives you a straight answer.</p>
+        <p class="andy-body">Andy leads every project personally. He knows the local terrain, the local climate, and the local suppliers. That local knowledge means fewer surprises, tighter timelines, and a finished product that holds up.</p>
+        <div class="andy-details">
+          <div class="andy-detail"><div class="andy-detail-icon">📋</div><span>Licensed Building Practitioner (LBP)</span></div>
+          <div class="andy-detail"><div class="andy-detail-icon">🏔️</div><span>Wānaka-based for over 20 years</span></div>
+          <div class="andy-detail"><div class="andy-detail-icon">✅</div><span>5-star Google rating · Every project, personally led</span></div>
+          <div class="andy-detail"><div class="andy-detail-icon">📞</div><span><a href="tel:+6421895745" style="color:var(--goldLt)">+64 21 895 745</a></span></div>
+        </div>
+        <div class="andy-sig">Andy Giles</div>
       </div>
     </div>
   </div>
@@ -419,34 +553,41 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.06);pad
     </div>
     <div class="rev-grid">
       <div class="rev-card reveal">
+        <div class="rev-mark">"</div>
         <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">"Andy and his team built our new home in Wānaka and the result is absolutely stunning. From the first conversation to the final handover, they were professional, communicative, and genuinely proud of the work they produce. Couldn't be happier."</p>
+        <p class="rev-text">Andy and his team built our new home in Wānaka and the result is absolutely stunning. From the first conversation to the final handover, they were professional, communicative, and genuinely proud of the work they produce. Couldn't be happier.</p>
         <div class="rev-author">Tom & Jess H.</div>
         <div class="rev-meta">Wānaka · New home build</div>
       </div>
       <div class="rev-card reveal">
+        <div class="rev-mark">"</div>
         <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">"We used A E Giles for a full renovation on our Hawea property. The quality of the workmanship is exceptional — you can see the care that goes into every detail. Andy is reliable, fair, and a genuinely good builder. Highly recommend."</p>
+        <p class="rev-text">We used A E Giles for a full renovation on our Hawea property. The quality of the workmanship is exceptional — you can see the care that goes into every detail. Andy is reliable, fair, and a genuinely good builder. Highly recommend.</p>
         <div class="rev-author">Sarah M.</div>
         <div class="rev-meta">Lake Hawea · Home renovation</div>
       </div>
       <div class="rev-card reveal">
+        <div class="rev-mark">"</div>
         <div class="rev-stars">★★★★★</div>
-        <p class="rev-text">"Got Andy in for a substantial extension on our holiday home. Brilliant communication throughout, finished on time, and the result looks like it was always meant to be there. If you're building in Wānaka, these are your guys."</p>
+        <p class="rev-text">Got Andy in for a substantial extension on our holiday home. Brilliant communication throughout, finished on time, and the result looks like it was always meant to be there. If you're building in Wānaka, these are your guys.</p>
         <div class="rev-author">Mark D.</div>
         <div class="rev-meta">Wānaka · Extension project</div>
       </div>
     </div>
-    <a href="review.html" class="rev-cta reveal">Leave us a review →</a>
+    <a href="review.html" class="rev-link reveal">Leave us a review →</a>
   </div>
 </section>
 
 <!-- CTA BAND -->
 <section class="cta-band">
+  <div class="cta-band-bg">
+    <img src="hero.jpg" alt="A E Giles Builders Wānaka">
+  </div>
+  <div class="cta-band-overlay"></div>
   <div class="cta-inner">
     <div class="reveal">
-      <h2>Ready to build something<br>you'll love for decades?</h2>
-      <p>Call Andy directly or send through your project details — we'll get back to you promptly.</p>
+      <h2>Ready to build something<br>you'll love for <em>decades?</em></h2>
+      <p>Call Andy directly or send through your project details — we'll be back in touch the same day.</p>
     </div>
     <div class="cta-btns reveal">
       <a href="tel:+6421895745" class="btn-white">📞 +64 21 895 745</a>
@@ -595,8 +736,8 @@ document.querySelectorAll('.mobile-menu a').forEach(a=>{
   a.addEventListener('click',()=>setTimeout(()=>document.getElementById('mobileMenu').classList.remove('open'),100))
 });
 const obs=new IntersectionObserver(e=>{
-  e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('visible'),i*85);obs.unobserve(el.target)}})
-},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+  e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('visible'),i*80);obs.unobserve(el.target)}})
+},{threshold:.08,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 </script>
 </body>
