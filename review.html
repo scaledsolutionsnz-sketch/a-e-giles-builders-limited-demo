@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leave a Review — A E Giles Builders</title>
+<meta name="description" content="Share your experience with A E Giles Builders — premium residential building in Wānaka.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:   #162818;
+  --forestDk: #0D1A0F;
+  --forestMd: #1E3620;
+  --gold:     #C47F12;
+  --goldLt:   #D89A30;
+  --goldDim:  rgba(196,127,18,.12);
+  --off:      #F5F3EF;
+  --off2:     #EDEBE6;
+  --text:     #162818;
+  --body:     #3D4F3E;
+  --white:    #ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--forestDk);color:var(--white);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;-webkit-font-smoothing:antialiased;position:relative;overflow:hidden}
+body::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(196,127,18,.08) 0%,transparent 65%);pointer-events:none}
+body::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(22,40,24,.6) 0%,transparent 70%);pointer-events:none}
+
+.logo-link{display:inline-flex;flex-direction:column;align-items:center;gap:.3rem;margin-bottom:2.5rem;text-decoration:none}
+.logo-name{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;color:var(--white);letter-spacing:-.01em}
+.logo-sub{font-size:.6rem;font-weight:500;color:rgba(255,255,255,.38);letter-spacing:.22em;text-transform:uppercase}
+
+.card{position:relative;z-index:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:3rem 3.5rem;max-width:520px;width:100%;text-align:center;backdrop-filter:blur(12px)}
+
+.card-eyebrow{font-size:.58rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--goldLt);margin-bottom:1rem;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.card-eyebrow::before,.card-eyebrow::after{content:'';display:block;width:18px;height:1px;background:rgba(196,127,18,.45)}
+
+.card h1{font-family:'Syne',sans-serif;font-size:1.85rem;font-weight:800;letter-spacing:-.025em;color:var(--white);margin-bottom:.75rem;line-height:1.1}
+.card h1 em{font-style:normal;color:var(--goldLt)}
+.card-sub{font-size:.9rem;color:rgba(255,255,255,.48);line-height:1.72;margin-bottom:2.5rem;font-weight:300}
+
+.stars{display:flex;justify-content:center;gap:.6rem;margin-bottom:.8rem}
+.star{font-size:2.8rem;cursor:pointer;transition:transform .15s,filter .15s;filter:grayscale(1) brightness(.5);user-select:none;line-height:1}
+.star.hovered,.star.selected{filter:none;transform:scale(1.15)}
+.star:hover{transform:scale(1.2)}
+
+.rating-label{font-size:.8rem;color:rgba(255,255,255,.38);letter-spacing:.06em;margin-bottom:2rem;min-height:1.2em;transition:opacity .2s}
+
+.btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 2.4rem;background:var(--gold);color:var(--white);border:none;border-radius:7px;font-family:'Syne',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .2s,transform .2s;width:100%;letter-spacing:.01em;opacity:.4;pointer-events:none}
+.btn-gold.active{opacity:1;pointer-events:auto}
+.btn-gold.active:hover{background:var(--goldLt);transform:translateY(-2px)}
+
+.divider{width:40px;height:1px;background:rgba(255,255,255,.1);margin:2rem auto 1.5rem}
+.private-link{font-size:.75rem;color:rgba(255,255,255,.28);transition:color .2s}
+.private-link a{color:rgba(255,255,255,.38);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.18)}
+.private-link a:hover{color:rgba(255,255,255,.65)}
+
+@media(max-width:480px){
+  .card{padding:2rem 1.6rem}
+  .card h1{font-size:1.5rem}
+  .star{font-size:2.2rem}
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="logo-link">
+  <span class="logo-name">A E Giles Builders</span>
+  <span class="logo-sub">Wānaka · Est. 1998</span>
+</a>
+
+<div class="card">
+  <div class="card-eyebrow">Your Feedback</div>
+  <h1>How did we <em>do?</em></h1>
+  <p class="card-sub">Your experience matters to us. Rate your project below — it only takes a second.</p>
+
+  <div class="stars" id="stars">
+    <span class="star" data-val="1">⭐</span>
+    <span class="star" data-val="2">⭐</span>
+    <span class="star" data-val="3">⭐</span>
+    <span class="star" data-val="4">⭐</span>
+    <span class="star" data-val="5">⭐</span>
+  </div>
+  <div class="rating-label" id="ratingLabel">Select a rating</div>
+
+  <button class="btn-gold" id="continueBtn" onclick="proceed()">Continue →</button>
+
+  <div class="divider"></div>
+  <p class="private-link">Prefer to give <a href="private.html">private feedback?</a></p>
+</div>
+
+<script>
+const labels = ['','Needs improvement','Could be better','Good experience','Great experience','Excellent — 5 stars!'];
+const GOOGLE_REVIEW_URL = 'https://g.page/r/CX5Q0L5LbmQzEBM/review';
+let selected = 0;
+
+const stars = document.querySelectorAll('.star');
+const label = document.getElementById('ratingLabel');
+const btn   = document.getElementById('continueBtn');
+
+stars.forEach((s,i) => {
+  s.addEventListener('mouseenter', () => {
+    stars.forEach((x,j) => x.classList.toggle('hovered', j <= i));
+    label.textContent = labels[i+1];
+  });
+  s.addEventListener('mouseleave', () => {
+    stars.forEach(x => x.classList.remove('hovered'));
+    label.textContent = selected ? labels[selected] : 'Select a rating';
+  });
+  s.addEventListener('click', () => {
+    selected = i + 1;
+    stars.forEach((x,j) => x.classList.toggle('selected', j <= i));
+    label.textContent = labels[selected];
+    btn.classList.add('active');
+  });
+});
+
+function proceed(){
+  if(!selected) return;
+  if(selected >= 4){
+    window.location.href = GOOGLE_REVIEW_URL;
+  } else {
+    window.location.href = 'private.html?rating=' + selected;
+  }
+}
+</script>
+</body>
+</html>

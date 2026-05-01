@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Private Feedback — A E Giles Builders</title>
+<meta name="description" content="Share private feedback with A E Giles Builders. We appreciate your honesty and will follow up personally.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --forest:   #162818;
+  --forestDk: #0D1A0F;
+  --forestMd: #1E3620;
+  --gold:     #C47F12;
+  --goldLt:   #D89A30;
+  --goldDim:  rgba(196,127,18,.12);
+  --off:      #F5F3EF;
+  --off2:     #EDEBE6;
+  --text:     #162818;
+  --body:     #3D4F3E;
+  --dim:      #7A8C7B;
+  --border:   rgba(22,40,24,.1);
+  --white:    #ffffff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--forestDk);color:var(--white);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;-webkit-font-smoothing:antialiased;position:relative;overflow:hidden}
+body::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(196,127,18,.07) 0%,transparent 65%);pointer-events:none}
+
+.logo-link{display:inline-flex;flex-direction:column;align-items:center;gap:.3rem;margin-bottom:2rem;text-decoration:none}
+.logo-name{font-family:'Syne',sans-serif;font-size:1.15rem;font-weight:800;color:var(--white);letter-spacing:-.01em}
+.logo-sub{font-size:.6rem;font-weight:500;color:rgba(255,255,255,.38);letter-spacing:.22em;text-transform:uppercase}
+
+.card{position:relative;z-index:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:2.8rem 3rem;max-width:540px;width:100%;backdrop-filter:blur(12px)}
+
+.card-eyebrow{font-size:.58rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--goldLt);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.card-eyebrow::before{content:'';display:block;width:18px;height:1px;background:rgba(196,127,18,.45)}
+
+.card h1{font-family:'Syne',sans-serif;font-size:1.65rem;font-weight:800;letter-spacing:-.025em;color:var(--white);margin-bottom:.65rem;line-height:1.1}
+.card h1 em{font-style:normal;color:var(--goldLt)}
+.card-sub{font-size:.875rem;color:rgba(255,255,255,.45);line-height:1.78;margin-bottom:2rem;font-weight:300}
+
+.ff{display:flex;flex-direction:column;gap:.4rem;margin-bottom:1.1rem}
+.ff label{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--goldLt)}
+.ff input,.ff select,.ff textarea{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:7px;padding:.8rem .95rem;font-size:.9rem;color:var(--white);font-family:'Inter',sans-serif;outline:none;transition:border-color .2s;width:100%}
+.ff input::placeholder,.ff textarea::placeholder{color:rgba(255,255,255,.28)}
+.ff input:focus,.ff select:focus,.ff textarea:focus{border-color:rgba(196,127,18,.5)}
+.ff select{appearance:none;cursor:pointer;color:rgba(255,255,255,.75)}
+.ff select option{background:var(--forestDk);color:var(--white)}
+.ff textarea{resize:vertical;min-height:120px}
+
+.btn-gold{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;width:100%;padding:.95rem;background:var(--gold);color:var(--white);border:none;border-radius:7px;font-family:'Syne',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;letter-spacing:.05em;text-transform:uppercase;transition:background .2s,transform .2s;margin-top:.5rem}
+.btn-gold:hover{background:var(--goldLt);transform:translateY(-2px)}
+
+.success-state{display:none;text-align:center;padding:1.5rem 0}
+.success-icon{font-size:3rem;margin-bottom:1.2rem}
+.success-state h2{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--white);margin-bottom:.6rem}
+.success-state p{font-size:.88rem;color:rgba(255,255,255,.48);line-height:1.78}
+.success-state a{display:inline-block;margin-top:1.6rem;font-size:.8rem;color:rgba(255,255,255,.35);text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.18)}
+.success-state a:hover{color:rgba(255,255,255,.65)}
+
+@media(max-width:480px){
+  .card{padding:2rem 1.5rem}
+  .card h1{font-size:1.4rem}
+}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="logo-link">
+  <span class="logo-name">A E Giles Builders</span>
+  <span class="logo-sub">Wānaka · Est. 1998</span>
+</a>
+
+<div class="card">
+
+  <div id="formState">
+    <div class="card-eyebrow">Private Feedback</div>
+    <h1>Tell us what <em>happened.</em></h1>
+    <p class="card-sub">We're sorry your experience fell short of expectations. Your feedback goes directly to Andy — we'll be in touch personally to make it right.</p>
+
+    <form action="https://api.staticforms.xyz/submit" method="post" id="feedbackForm">
+      <input type="hidden" name="apiKey" value="sf_768da8d33927e7f4f241d0a6">
+      <input type="hidden" name="replyTo" value="@">
+      <input type="hidden" name="subject" value="Private Feedback — A E Giles Builders">
+      <input type="hidden" name="redirectTo" value="">
+
+      <div class="ff">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+      </div>
+      <div class="ff">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+      </div>
+      <div class="ff">
+        <label for="rating">Your Rating</label>
+        <select id="rating" name="rating" required>
+          <option value="" disabled selected>Select your rating</option>
+          <option value="1 star">⭐ 1 star</option>
+          <option value="2 stars">⭐⭐ 2 stars</option>
+          <option value="3 stars">⭐⭐⭐ 3 stars</option>
+        </select>
+      </div>
+      <div class="ff">
+        <label for="feedback">Your Feedback</label>
+        <textarea id="feedback" name="message" placeholder="Please tell us what went wrong and how we could have done better…" required></textarea>
+      </div>
+      <button type="submit" class="btn-gold">Send Feedback</button>
+    </form>
+  </div>
+
+  <div class="success-state" id="successState">
+    <div class="success-icon">🙏</div>
+    <h2>Thank you for telling us.</h2>
+    <p>Your feedback has been sent directly to Andy. We take every experience seriously and will be in touch personally within 24 hours.</p>
+    <a href="index.html">← Back to A E Giles Builders</a>
+  </div>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const r = params.get('rating');
+if(r){
+  const sel = document.getElementById('rating');
+  const map = {'1':'1 star','2':'2 stars','3':'3 stars'};
+  if(map[r]){
+    for(let i=0;i<sel.options.length;i++){
+      if(sel.options[i].value===map[r]){sel.selectedIndex=i;break}
+    }
+  }
+}
+
+document.getElementById('feedbackForm').addEventListener('submit', function(e){
+  setTimeout(() => {
+    document.getElementById('formState').style.display = 'none';
+    document.getElementById('successState').style.display = 'block';
+  }, 900);
+});
+</script>
+</body>
+</html>
