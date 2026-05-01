@@ -262,7 +262,7 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.05);pad
   .foot-inner{grid-template-columns:1fr 1fr;gap:2.5rem}
   .cta-inner{grid-template-columns:1fr;gap:2rem}
   .cta-btns{flex-direction:row;flex-wrap:wrap;min-width:unset}
-  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:240px 200px}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:220px 200px}
   .g-item:first-child{grid-row:span 1}
   .rev-grid{grid-template-columns:1fr 1fr}
   .featured-img{height:380px}
@@ -270,38 +270,90 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.05);pad
   .featured-title{font-size:1.7rem}
 }
 @media(max-width:640px){
-  nav{height:64px}
+  nav{height:60px}
+  .nav-logo-name{font-size:1.1rem}
+  .nav-logo-sub{display:none}
   .nav-links{display:none}
   .hamburger{display:flex}
-  .mobile-menu{top:64px}
+  .mobile-menu{top:60px}
+
   .hero{min-height:100svh}
-  .hero-content{padding:0 1.5rem 4rem}
-  .hero h1{font-size:2.8rem}
-  .hero-btns{flex-direction:column;align-items:stretch}
-  .hero-btns a{text-align:center;justify-content:center}
-  .hero-stats{gap:2.5rem}
-  .about,.services,.gallery,.reviews,.andy,.contact{padding:5rem 1.5rem}
-  .featured{padding:0 1.5rem 5rem}
-  h2{font-size:2.2rem}
-  .svc-grid{grid-template-columns:1fr}
-  .gallery-grid{grid-template-columns:1fr;grid-template-rows:unset}
-  .g-item{height:240px}
-  .g-item:first-child{grid-row:span 1}
-  .rev-grid{grid-template-columns:1fr}
-  .reviews-top{flex-direction:column;align-items:flex-start}
-  .f-row{grid-template-columns:1fr}
-  .form-wrap{padding:1.8rem}
-  footer{padding:3rem 1.5rem 1.5rem}
-  .foot-inner{grid-template-columns:1fr;gap:2rem}
-  .foot-bottom{flex-direction:column;gap:.4rem}
-  .cta-inner{padding:3.5rem 1.5rem;grid-template-columns:1fr}
-  .cta-btns{min-width:unset;flex-direction:column}
+  .hero-bg{background-position:60% center}
+  .hero-content{padding:80px 1.25rem 3.5rem}
+  .hero-tag{margin-bottom:1rem}
+  .hero h1{font-size:2.4rem;max-width:100%}
+  .hero-sub{font-size:.88rem;margin-bottom:2rem;max-width:100%}
+  .hero-btns{flex-direction:column;align-items:stretch;gap:.75rem;margin-bottom:2.5rem}
+  .hero-btns a{text-align:center;justify-content:center;padding:.9rem 1.5rem}
+  .hero-rule{margin-bottom:1.8rem}
+  .hero-stats{gap:2rem;flex-wrap:wrap}
+  .stat-val{font-size:2.4rem}
+
+  .feature-strip{padding:1.2rem 0}
+
+  .about,.services,.gallery,.reviews,.andy,.contact{padding:4rem 1.25rem}
+  .featured{padding:0 1.25rem 4rem}
+
+  h2{font-size:2rem}
+
+  .about-grid,.andy-grid{gap:2.5rem}
+  .about-img-main img{height:280px}
   .about-img-inset{display:none}
-  .about-badge{right:.75rem;top:.75rem}
-  .featured-img{height:280px}
-  .featured-caption{padding:1.5rem}
-  .featured-title{font-size:1.4rem}
-  .andy-img img{height:320px}
+  .about-badge{top:1rem;right:1rem;left:auto;padding:.75rem 1rem;gap:.6rem}
+  .badge-icon{font-size:1.2rem}
+  .badge-text strong{font-size:.78rem}
+  .badge-text span{font-size:.62rem}
+
+  .featured-img{height:240px}
+  .featured-caption{padding:1.2rem 1.4rem}
+  .featured-tag{margin-bottom:.4rem}
+  .featured-title{font-size:1.25rem}
+  .featured-desc{font-size:.78rem}
+
+  .svc-grid{grid-template-columns:1fr;border-radius:4px}
+  .svc-card{padding:1.8rem 1.5rem}
+  .svc-num{font-size:2.2rem;margin-bottom:.8rem}
+  .svc-title{font-size:1.2rem}
+
+  .gallery-grid{display:flex;flex-direction:column;gap:.6rem}
+  .g-item{height:220px;border-radius:4px}
+
+  .andy-img img{height:300px}
+  .andy-quote p{font-size:1rem}
+  .andy-sig{font-size:1.6rem}
+  .andy-details{gap:.55rem}
+  .andy-detail{font-size:.82rem}
+  .andy-detail-icon{width:30px;height:30px;font-size:.85rem}
+
+  .rev-grid{grid-template-columns:1fr;gap:1rem}
+  .reviews-top{flex-direction:column;align-items:flex-start}
+  .rating-block{padding:1rem 1.4rem}
+  .rating-num{font-size:2.8rem}
+  .rev-card{padding:1.6rem}
+  .rev-mark{font-size:3rem}
+
+  .cta-inner{padding:3.5rem 1.25rem;grid-template-columns:1fr;gap:1.8rem}
+  .cta-btns{min-width:unset;flex-direction:column}
+  .btn-white,.btn-white-out{padding:.9rem 1.5rem;justify-content:center}
+
+  .f-row{grid-template-columns:1fr}
+  .form-wrap{padding:1.5rem}
+  .form-title{font-size:1.55rem;margin-bottom:1.2rem}
+  .f-group input,.f-group select,.f-group textarea{font-size:16px}
+
+  footer{padding:2.5rem 1.25rem 1.25rem}
+  .foot-inner{grid-template-columns:1fr;gap:1.8rem;margin-bottom:1.8rem}
+  .foot-bottom{flex-direction:column;gap:.4rem}
+}
+@media(max-width:380px){
+  .hero h1{font-size:2rem}
+  .hero-stats{gap:1.5rem}
+  .stat-val{font-size:2rem}
+  h2{font-size:1.8rem}
+  .about,.services,.gallery,.reviews,.andy,.contact{padding:3.5rem 1rem}
+  .featured{padding:0 1rem 3.5rem}
+  .cta-inner{padding:3rem 1rem}
+  footer{padding:2rem 1rem 1rem}
 }
 </style>
 </head>
