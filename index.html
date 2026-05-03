@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>A E Giles Builders — Wānaka</title>
 <meta name="description" content="Premium residential building in Wānaka and the wider Otago region. New homes, renovations, and extensions. Call Andy Giles on +64 21 895 745.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -277,16 +277,20 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.05);pad
   .hamburger{display:flex}
   .mobile-menu{top:60px}
 
+  /* Hero — ensure stats clear the browser chrome at bottom */
   .hero{min-height:100svh}
   .hero-bg{background-position:60% center}
-  .hero-content{padding:80px 1.25rem 3.5rem}
+  .hero-content{
+    padding:80px 1.25rem 0;
+    padding-bottom:max(5rem, calc(3.5rem + env(safe-area-inset-bottom)));
+  }
   .hero-tag{display:none}
   .hero h1{font-size:2.4rem;max-width:100%}
   .hero-sub{font-size:.88rem;margin-bottom:2rem;max-width:100%}
   .hero-btns{flex-direction:column;align-items:stretch;gap:.75rem;margin-bottom:2.5rem}
   .hero-btns a{text-align:center;justify-content:center;padding:.9rem 1.5rem}
   .hero-rule{margin-bottom:1.8rem}
-  .hero-stats{gap:2rem;flex-wrap:wrap}
+  .hero-stats{gap:2rem;flex-wrap:wrap;padding-bottom:.5rem}
   .stat-val{font-size:2.4rem}
 
   .feature-strip{padding:1.2rem 0}
@@ -341,7 +345,11 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.05);pad
   .form-title{font-size:1.55rem;margin-bottom:1.2rem}
   .f-group input,.f-group select,.f-group textarea{font-size:16px}
 
-  footer{padding:2.5rem 1.25rem 1.25rem}
+  /* Footer — safe area inset so content clears the iOS home bar */
+  footer{
+    padding:2.5rem 1.25rem 0;
+    padding-bottom:max(2rem, calc(1.25rem + env(safe-area-inset-bottom)));
+  }
   .foot-inner{grid-template-columns:1fr;gap:1.8rem;margin-bottom:1.8rem}
   .foot-bottom{flex-direction:column;gap:.4rem}
 }
@@ -353,7 +361,10 @@ footer{background:var(--forestDk);border-top:1px solid rgba(255,255,255,.05);pad
   .about,.services,.gallery,.reviews,.andy,.contact{padding:3.5rem 1rem}
   .featured{padding:0 1rem 3.5rem}
   .cta-inner{padding:3rem 1rem}
-  footer{padding:2rem 1rem 1rem}
+  footer{
+    padding:2rem 1rem 0;
+    padding-bottom:max(1.5rem, calc(1rem + env(safe-area-inset-bottom)));
+  }
 }
 </style>
 </head>
